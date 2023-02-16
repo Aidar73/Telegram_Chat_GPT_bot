@@ -8,10 +8,11 @@ from telebot import types
 # Загрузка токена
 load_dotenv()
 token = os.getenv('TELEGRAM_TOKEN')
+key = os.getenv('key_openai')
 # Подключение бота
 bot = telebot.TeleBot(token)
 # OpenAI key
-openai.api_key = "key"
+openai.api_key = key
 
 
 # Функция для обработки ввода сообщений
