@@ -1,5 +1,4 @@
 import os
-
 import openai
 import telebot
 from dotenv import load_dotenv
@@ -21,12 +20,16 @@ def func(message):
     response = openai.Completion.create(
         engine='text-davinci-003',
         prompt=f'{message.text}',
-        max_tokens=4000,
+        max_tokens=1000,
         n=1,
         stop=None,
         temperature=0.5,
     )
     bot.send_message(message.chat.id, response.choices[0].text)
+    print(message.from_user.username, message.from_user.first_name)
+    print(message.text)
+    print(response.choices[0].text)
+    print('_______________________________________________')
 
 
 # Запускаем бота
